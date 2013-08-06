@@ -2,11 +2,6 @@ require 'rubygems'
 require 'httparty'
 require 'hashie'
 
-#
-# BreweryDb.configure do |config|
-#   config.apikey = ''
-# end
-
 class BreweryDb2
   include HTTParty
   base_uri 'http://api.brewerydb.com/v2'
@@ -20,7 +15,7 @@ class BreweryDb2
       })
 
     response = get("/heartbeat", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.search(options={})
@@ -29,7 +24,7 @@ class BreweryDb2
     })
 
     response = get("/search", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.breweries(options={})
@@ -38,7 +33,7 @@ class BreweryDb2
     })
 
     response = get("/breweries", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.brewery(id, options={})
@@ -47,7 +42,7 @@ class BreweryDb2
     })
 
     response = get("/brewery/#{id}", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.beers(options={})
@@ -56,7 +51,7 @@ class BreweryDb2
     })
 
     response = get("/beers", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.beer(id, options={})
@@ -65,7 +60,7 @@ class BreweryDb2
     })
 
     response = get("/beer/#{id}", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.styles(options={})
@@ -74,7 +69,7 @@ class BreweryDb2
     })
 
     response = get("/styles", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.style(id, options={})
@@ -83,7 +78,7 @@ class BreweryDb2
     })
 
     response = get("/style/#{id}", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.categories(options={})
@@ -92,7 +87,7 @@ class BreweryDb2
     })
 
     response = get("/categories", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.category(id, options={})
@@ -101,7 +96,7 @@ class BreweryDb2
     })
 
     response = get("/category/#{id}", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.glassware(options={})
@@ -110,7 +105,7 @@ class BreweryDb2
     })
 
     response = get("/glassware", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.glass(id, options={})
@@ -119,7 +114,7 @@ class BreweryDb2
     })
 
     response = get("/glass/#{id}", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.events(options={})
@@ -128,7 +123,7 @@ class BreweryDb2
     })
 
     response = get("/events", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.event(id, options={})
@@ -137,7 +132,7 @@ class BreweryDb2
     })
 
     response = get("/event/#{id}", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.featured(options={})
@@ -146,7 +141,7 @@ class BreweryDb2
     })
 
     response = get("/featured", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.features(options={})
@@ -155,7 +150,7 @@ class BreweryDb2
     })
 
     response = get("/features", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
 
@@ -165,7 +160,7 @@ class BreweryDb2
     })
 
     response = get("/feature/#{id}", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.fluidsizes(options={})
@@ -174,7 +169,7 @@ class BreweryDb2
     })
 
     response = get("/fluidsizes", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
 
@@ -184,7 +179,7 @@ class BreweryDb2
     })
 
     response = get("/fluidsize/#{id}", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.guilds(options={})
@@ -193,7 +188,7 @@ class BreweryDb2
     })
 
     response = get("/guilds", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
 
@@ -203,7 +198,7 @@ class BreweryDb2
     })
 
     response = get("/guild/#{id}", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.ingredients(options={})
@@ -212,7 +207,7 @@ class BreweryDb2
     })
 
     response = get("/ingredients", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
 
@@ -222,7 +217,7 @@ class BreweryDb2
     })
 
     response = get("/ingredient/#{id}", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.locations(options={})
@@ -231,7 +226,7 @@ class BreweryDb2
     })
 
     response = get("/locations", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
 
@@ -241,7 +236,7 @@ class BreweryDb2
     })
 
     response = get("/location/#{id}", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.socialsites(options={})
@@ -250,7 +245,7 @@ class BreweryDb2
     })
 
     response = get("/socialsites", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
 
@@ -260,7 +255,7 @@ class BreweryDb2
     })
 
     response = get("/socialsite/#{id}", :query => options)
-    Hashie::Mash.new(response)['data'] if response.code == 200
+    Hashie::Mash.new(response) if response.code == 200
   end
 
   def self.apikey
