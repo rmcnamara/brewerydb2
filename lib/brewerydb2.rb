@@ -45,6 +45,15 @@ class BreweryDb2
     Hashie::Mash.new(response) if response.code == 200
   end
 
+  def self.brewery_add(options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = post("/breweries", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
   def self.beers(options={})
     options.merge!({
       :key => apikey
@@ -60,6 +69,15 @@ class BreweryDb2
     })
 
     response = get("/beer/#{id}", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
+  def self.beer_add(options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = post("/beers", :query => options)
     Hashie::Mash.new(response) if response.code == 200
   end
 
@@ -198,6 +216,15 @@ class BreweryDb2
     })
 
     response = get("/guild/#{id}", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
+  def self.guild_add(id, options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = post("/guilds", :query => options)
     Hashie::Mash.new(response) if response.code == 200
   end
 
