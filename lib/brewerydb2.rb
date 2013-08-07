@@ -54,6 +54,24 @@ class BreweryDb2
     Hashie::Mash.new(response) if response.code == 200
   end
 
+  def self.adjuncts(options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = get("/adjuncts", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
+  def self.adjunct(id, options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = get("/adjunct/#{id}", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
   def self.breweries(options={})
     options.merge!({
       :key => apikey
@@ -243,6 +261,24 @@ class BreweryDb2
     Hashie::Mash.new(response) if response.code == 200
   end
 
+  def self.fermentables(options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = get("/fermentables", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
+  def self.fermentable(id, options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = get("/fermentable/#{id}", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
   def self.fluidsizes(options={})
     options.merge!({
       :key => apikey
@@ -297,6 +333,24 @@ class BreweryDb2
     Hashie::Mash.new(response) if response.code == 200
   end
 
+  def self.hops(options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = get("/hops", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
+  def self.hop(id, options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = get("/hop/#{id}", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
   def self.ingredients(options={})
     options.merge!({
       :key => apikey
@@ -343,6 +397,15 @@ class BreweryDb2
     Hashie::Mash.new(response) if response.code == 200
   end
 
+  def self.menu(id, options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = get("/menu/#{id}", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
   def self.socialsites(options={})
     options.merge!({
       :key => apikey
@@ -358,6 +421,24 @@ class BreweryDb2
     })
 
     response = get("/socialsite/#{id}", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
+  def self.yeasts(options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = get("/yeasts", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
+  def self.yeast(id, options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = get("/yeast/#{id}", :query => options)
     Hashie::Mash.new(response) if response.code == 200
   end
 
