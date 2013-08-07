@@ -108,6 +108,15 @@ class BreweryDb2
     Hashie::Mash.new(response) if response.code == 200
   end
 
+  def self.brewery_delete(id, options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = delete("/brewery/#{id}", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
   def self.beers(options={})
     options.merge!({
       :key => apikey
@@ -141,6 +150,15 @@ class BreweryDb2
     })
 
     response = put("/beer/#{id}", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
+  def self.beer_delete(id, options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = delete("/beer/#{id}", :query => options)
     Hashie::Mash.new(response) if response.code == 200
   end
 
@@ -231,6 +249,15 @@ class BreweryDb2
     })
 
     response = put("/event/#{id}", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
+  def self.event_delete(id, options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = delete("/event/#{id}", :query => options)
     Hashie::Mash.new(response) if response.code == 200
   end
 
@@ -333,6 +360,15 @@ class BreweryDb2
     Hashie::Mash.new(response) if response.code == 200
   end
 
+  def self.guild_delete(id, options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = delete("/guild/#{id}", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
   def self.hops(options={})
     options.merge!({
       :key => apikey
@@ -394,6 +430,15 @@ class BreweryDb2
     })
 
     response = put("/location/#{id}", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
+  def self.location_delete(id, options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = delete("/location/#{id}", :query => options)
     Hashie::Mash.new(response) if response.code == 200
   end
 
