@@ -27,6 +27,33 @@ class BreweryDb2
     Hashie::Mash.new(response) if response.code == 200
   end
 
+  def self.search_upc(options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = get("/search/upc", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
+  def self.search_geopoint(options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = get("/search/geo/point", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
+  def self.search_style(options={})
+    options.merge!({
+      :key => apikey
+    })
+
+    response = get("/search/style", :query => options)
+    Hashie::Mash.new(response) if response.code == 200
+  end
+
   def self.breweries(options={})
     options.merge!({
       :key => apikey
